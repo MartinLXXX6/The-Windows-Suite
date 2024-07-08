@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <_LastSelectedProfileId>C:\Users\larra\Documents\Visual Studio 2022\My Proyects\Win-Tweaker\Properties\PublishProfiles\FolderProfile1.pubxml</_LastSelectedProfileId>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Update="Features.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Home.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Optimization.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Personalization.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="PP Results.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Privacy.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Security_1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Security_2.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Startup.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+  </ItemGroup>
+</Project>

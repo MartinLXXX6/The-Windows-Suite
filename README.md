@@ -1,3 +1,6 @@
+# Requirements
+- Windows Operating system (8,8.1,10,11)
+- Windows PowerShell installed
 # How to Run the App
 - Download the .zip folder
 - Extract ALL files

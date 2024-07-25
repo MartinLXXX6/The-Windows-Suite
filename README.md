@@ -1,5 +1,5 @@
 # Requirements
-- Windows Operating system (8,8.1,10,11)
+- OS: Windows (any product)
 - Windows PowerShell installed
 # How to Run the App
 - Download the .zip folder

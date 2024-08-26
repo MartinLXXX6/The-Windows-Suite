@@ -9,4 +9,4 @@
 - Allow administrative priviliges
 - Enjoy
 
-Note: This app does not create any leftovers so to uninstall it just delete the hole folder.
+Note: This app does not create any leftovers so to uninstall it just delete the whole folder.

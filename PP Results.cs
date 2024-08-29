@@ -93,7 +93,7 @@ namespace Win_Tweaker
 
             Collection<PSObject> results = pipeline.Invoke();
 
-            txt = results[1].ToString() + "(Press 'Ctrl + C' to copy a GUID):\n";
+            txt = results[1].ToString() + " | (Select and press 'Ctrl + C' to copy a GUID):\n";
 
             for (int i = 3; i < results.Count; i++)
             {

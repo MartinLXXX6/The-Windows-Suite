@@ -1,20 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-using System.Management.Automation.Runspaces;
-using System.Collections.ObjectModel;
-using System.Management.Automation;
+﻿using System.Management.Automation.Runspaces;
 using System.Diagnostics;
-using System.Security.Policy;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.TrackBar;
 
 namespace Win_Tweaker
 {
@@ -85,25 +70,133 @@ namespace Win_Tweaker
             }
             #endregion
 
-            #region ReduceHoverTime
-            if (ReduceHoverTime_CB.Checked == false)
-            {
-                ChangeRegKey("HKCU:\\Control Panel\\Mouse", "MouseHoverTime", true, pipeline, "string", "500");
-                ChangeRegKey("HKCU:\\Control Panel\\Desktop", "MenuShowDelay", true, pipeline, "string", "1");
-            }
-            else if (ReduceHoverTime_CB.Checked == true)
-            {
-                ChangeRegKey("HKCU:\\Control Panel\\Mouse", "MouseHoverTime", true, pipeline, "string", "100");
-                ChangeRegKey("HKCU:\\Control Panel\\Desktop", "MenuShowDelay", true, pipeline, "string", "100");
-            }
-            #endregion
-
             pipeline.Invoke();
             runspace.Close();
 
             RestartExplorer();
 
             MessageBox.Show("GAMING tweaks successfuly applied");
+        }
+
+        private void Plans_BTN_Click(object sender, EventArgs e)
+        {
+            Main_Form.instance.PPResultsShow();
+        }
+        private void Services_BTN_Click(object sender, EventArgs e)
+        {
+            string[] services = new string[]
+            {
+                "diagnosticshub.standardcollector.service",
+                "DPS",
+                "lfsvc",
+                "MapsBroker",
+                "NetTcpPortSharing",
+                "RemoteAccess",
+                "SharedAccess",
+                "TrkWks",
+                "WMPNetworkSvc",
+                "XblAuthManager",
+                "XblGameSave",
+                "XboxNetApiSvc",
+                "XboxGipSvc",
+                "ndu",
+                "WerSvc",
+                "Fax",
+                "fhsvc",
+                "gupdate",
+                "gupdatem",
+                "stisvc",
+                "AJRouter",
+                "MSDTC",
+                "WpcMonSvc",
+                "PhoneSvc",
+                "PrintNotify",
+                "PcaSvc",
+                "WPDBusEnum",
+                "seclogon",
+                "SysMain",
+                "lmhosts",
+                "wisvc",
+                "FontCache",
+                "RetailDemo",
+                "ALG",
+                "SCardSvr",
+                "EntAppSvc",
+                "Browser",
+                "BthAvctpSvc",
+                "SEMgrSvc",
+                "PerfHost",
+                "BcastDVRUserService_48486de",
+                "CaptureService_48486de",
+                "cbdhsvc_48486de",
+                "RtkBtManServ",
+                "HPAppHelperCap",
+                "HPDiagsCap",
+                "HPNetworkCap",
+                "HPSysInfoCap",
+                "HpTouchpointAnalyticsService",
+                "HvHost",
+                "vmickvpexchange",
+                "vmicguestinterface",
+                "vmicshutdown",
+                "vmicheartbeat",
+                "vmicvmsession",
+                "vmicrdv",
+                "vmictimesync"
+            };
+
+            List<string> notFoundServices = new List<string>();
+
+            using (Runspace runspace = RunspaceFactory.CreateRunspace())
+            {
+                runspace.Open();
+
+                foreach (string service in services)
+                {
+                    using (Pipeline pipeline = runspace.CreatePipeline())
+                    {
+                        string commandText = $@"
+                        $service = Get-Service -Name '{service}' -ErrorAction SilentlyContinue
+                        if ($service) {{
+                            Set-Service -Name '{service}' -StartupType Manual
+                            Write-Output 'Service {service} set to Manual'
+                        }} else {{
+                            Write-Output 'Service {service} not found'
+                        }}";
+
+                        pipeline.Commands.AddScript(commandText);
+
+                        try
+                        {
+                            var results = pipeline.Invoke();
+                            foreach (var result in results)
+                            {
+                                string resultString = result.ToString();
+                                if (resultString.Contains("not found"))
+                                {
+                                    notFoundServices.Add(resultString);
+                                }
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show($"An error occurred: {ex.Message}");
+                        }
+                    }
+                }
+
+                runspace.Close();
+            }
+
+            if (notFoundServices.Count > 0)
+            {
+                string errorMessage = "The following services were not found, dont worry some services are for some programs specifically:\n-" + string.Join("\n-", notFoundServices);
+                MessageBox.Show(errorMessage);
+            }
+            else
+            {
+                MessageBox.Show("All services were set to Manual.");
+            };
         }
 
         private static void ChangeRegKey(string path, string valueName, bool forcePath, Pipeline pipeline, string valueType, string value)
@@ -122,9 +215,9 @@ namespace Win_Tweaker
                 pipeline.Commands.AddScript($"Set-ItemProperty -Path '{path}' -Name '{valueName}' -Value '{value}' -Type {valueType}");
             }
         }
-        private static void ChangeScheduledTask(string path, string name, bool enabled)
+        private static void ChangeService(string name, string statusType, Pipeline pipeline)
         {
-            Process.Start("schtasks.exe", $"/Change /TN \"{path}\\{name}\" /{enabled}");
+            pipeline.Commands.AddScript($@"Set-Service -name '{name}' -startupType '{statusType}'");
         }
 
         private void ResetToDefault(object sender, EventArgs e)
@@ -133,7 +226,6 @@ namespace Win_Tweaker
             PThrottling_CB.Checked = true;
             GPUPriority_DD.SelectedItem = "Normal (Default)";
             EnhancedPrecision_CB.Checked = true;
-            ReduceHoverTime_CB.Checked = false;
         }
         private void RestartExplorer()
         {
@@ -148,10 +240,6 @@ namespace Win_Tweaker
             {
                 MessageBox.Show("Error restarting Windows Explorer: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
-        private void Plans_BTN_Click(object sender, EventArgs e)
-        {
-            Main_Form.instance.PPResultsShow();
         }
     }
 }

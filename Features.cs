@@ -1,15 +1,5 @@
-﻿using Microsoft.Win32;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Diagnostics;
-using System.Drawing;
-using System.Linq;
+﻿using System.Diagnostics;
 using System.Management.Automation.Runspaces;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace Win_Tweaker
 {
@@ -53,7 +43,7 @@ namespace Win_Tweaker
             Pipeline pipeline = runspace.CreatePipeline();
 
             #region Context_Menu
-            if(CM_DDM.SelectedItem == "Enable")
+            if (CM_DDM.SelectedItem == "Enable")
             {
                 ChangeRegKey("HKCU:\\SOFTWARE\\CLASSES\\CLSID\\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}\\InprocServer32", "(Default)", true, pipeline, "string", "");
             }
@@ -114,15 +104,67 @@ namespace Win_Tweaker
             #region Volume_Layout
             if (VL_DDM.SelectedItem == "Enable")
             {
-
+                ChangeRegKey("HKLM:\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\MTCUVC", "EnableMtcUvc", true, pipeline, "DWord", "0");
             }
             else if (VL_DDM.SelectedItem == "Disable")
             {
-
+                ChangeRegKey("HKLM:\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\MTCUVC", "EnableMtcUvc", true, pipeline, "DWord", "1");
             }
             #endregion
 
-            //Collection<PSObject> results = pipeline.Invoke();
+            #region UninstallApp
+
+            if (UninstallApp_DD.SelectedItem == "Your Phone/Phone Link")
+            {
+                //pipeline.Commands.AddScript("Import-Module Appx $package = Get-AppxPackage -Name Microsoft.YourPhone -ErrorAction SilentlyContinue\r\n\r\nif ($package) {Remove-AppxPackage $package}");
+
+            }
+            else if (UninstallApp_DD.SelectedItem == "OneDrive")
+            {
+                string script = @"
+                $module = Get-Module -ListAvailable Appx | Select-Object -First 1 -ExpandProperty Path;
+                if ($module) {
+                    try {
+                        Import-Module $module -ErrorAction Stop;
+                        $package = Get-AppxPackage -Name Microsoft.OneDriveSync -ErrorAction SilentlyContinue;
+                        if ($package) {
+                            Remove-AppxPackage -Package $package
+                        } else {
+                            Write-Output 'Package not found or already removed.';
+                        }
+                    } catch {
+                        Write-Output 'Failed to import module or execute command: ' + $_.Exception.Message;
+                    }
+                } else {
+                    Write-Output 'Appx module not found.';
+                }
+            ";
+
+                //pipeline.Commands.AddScript(script);
+            }
+            else if (UninstallApp_DD.SelectedItem == "Get Started & Tips")
+            {
+                //pipeline.Commands.AddScript("Import-Module Appx $package = Get-AppxPackage -Name Microsoft.Getstarted -ErrorAction SilentlyContinue\r\n\r\nif ($package) {Remove-AppxPackage $package}");
+            }
+            else if (UninstallApp_DD.SelectedItem == "Get Help")
+            {
+                //pipeline.Commands.AddScript("Import-Module Appx $package = Get-AppxPackage -Name Microsoft.GetHelp -ErrorAction SilentlyContinue\r\n\r\nif ($package) {Remove-AppxPackage $package}");
+
+            }
+            else if (UninstallApp_DD.SelectedItem == "People")
+            {
+                //pipeline.Commands.AddScript("Import-Module Appx $package = Get-AppxPackage -Name Microsoft.People -ErrorAction SilentlyContinue\r\n\r\nif ($package) {Remove-AppxPackage $package}");
+
+            }
+
+            #endregion
+
+            if (pipeline.Commands.Count == 0)
+            {
+                MessageBox.Show("No tweak was selected.");
+                return;
+            }
+
             pipeline.Invoke();
             runspace.Close();
 

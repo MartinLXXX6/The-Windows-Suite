@@ -48,7 +48,7 @@
             Personalization_LBL.AutoSize = true;
             Personalization_LBL.Font = new Font("Segoe UI Black", 22.2F, FontStyle.Bold);
             Personalization_LBL.ForeColor = SystemColors.ActiveCaptionText;
-            Personalization_LBL.Location = new Point(276, 40);
+            Personalization_LBL.Location = new Point(251, 40);
             Personalization_LBL.Name = "Personalization_LBL";
             Personalization_LBL.Size = new Size(199, 50);
             Personalization_LBL.TabIndex = 17;
@@ -59,9 +59,9 @@
             // 
             label2.Font = new Font("Segoe UI", 14.2F);
             label2.ForeColor = SystemColors.ActiveCaptionText;
-            label2.Location = new Point(21, 205);
+            label2.Location = new Point(10, 144);
             label2.Name = "label2";
-            label2.Size = new Size(708, 102);
+            label2.Size = new Size(681, 102);
             label2.TabIndex = 20;
             label2.Text = "Disable Remote Desktop and Remote Registry.This are a big security risk as anyone can access your computer remotely.\r\nNote: On Windows Home Edition is not possible to turn it on.\r\n";
             label2.TextAlign = ContentAlignment.MiddleCenter;
@@ -71,7 +71,7 @@
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label1.ForeColor = SystemColors.ActiveCaptionText;
-            label1.Location = new Point(325, 90);
+            label1.Location = new Point(300, 90);
             label1.Name = "label1";
             label1.Size = new Size(100, 38);
             label1.TabIndex = 19;
@@ -86,11 +86,11 @@
             RDSett_BTN.FlatAppearance.BorderSize = 2;
             RDSett_BTN.FlatAppearance.MouseDownBackColor = Color.FromArgb(102, 102, 102);
             RDSett_BTN.FlatAppearance.MouseOverBackColor = Color.FromArgb(242, 242, 242);
-            RDSett_BTN.FlatStyle = FlatStyle.Flat;
+            RDSett_BTN.FlatStyle = FlatStyle.System;
             RDSett_BTN.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            RDSett_BTN.Location = new Point(21, 600);
+            RDSett_BTN.Location = new Point(10, 487);
             RDSett_BTN.Name = "RDSett_BTN";
-            RDSett_BTN.Size = new Size(304, 75);
+            RDSett_BTN.Size = new Size(262, 120);
             RDSett_BTN.TabIndex = 23;
             RDSett_BTN.Text = "Remote Desktop Settings";
             RDSett_BTN.UseVisualStyleBackColor = false;
@@ -104,11 +104,11 @@
             RRRDServices_BTN.FlatAppearance.BorderSize = 2;
             RRRDServices_BTN.FlatAppearance.MouseDownBackColor = Color.FromArgb(102, 102, 102);
             RRRDServices_BTN.FlatAppearance.MouseOverBackColor = Color.FromArgb(242, 242, 242);
-            RRRDServices_BTN.FlatStyle = FlatStyle.Flat;
+            RRRDServices_BTN.FlatStyle = FlatStyle.System;
             RRRDServices_BTN.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            RRRDServices_BTN.Location = new Point(425, 600);
+            RRRDServices_BTN.Location = new Point(429, 487);
             RRRDServices_BTN.Name = "RRRDServices_BTN";
-            RRRDServices_BTN.Size = new Size(304, 75);
+            RRRDServices_BTN.Size = new Size(262, 120);
             RRRDServices_BTN.TabIndex = 24;
             RRRDServices_BTN.Text = "Disable Remote Reg. and Remote Desk. Services";
             toolTip1.SetToolTip(RRRDServices_BTN, "Disable the services responsible for the Remote Registry function and Remote Desktop");
@@ -120,20 +120,21 @@
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI Semibold", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label4.ForeColor = SystemColors.ActiveCaptionText;
-            label4.Location = new Point(138, 339);
+            label4.Location = new Point(95, 246);
             label4.Name = "label4";
             label4.Size = new Size(92, 38);
             label4.TabIndex = 26;
             label4.Text = "Step 1";
             label4.TextAlign = ContentAlignment.MiddleCenter;
+            label4.Click += label4_Click;
             // 
             // label3
             // 
             label3.Font = new Font("Segoe UI", 14.2F);
             label3.ForeColor = SystemColors.ActiveCaptionText;
-            label3.Location = new Point(19, 377);
+            label3.Location = new Point(10, 289);
             label3.Name = "label3";
-            label3.Size = new Size(316, 134);
+            label3.Size = new Size(264, 195);
             label3.TabIndex = 25;
             label3.Text = "Make sure Remote Desktop is turned off.\r\nBUTTON BELOW";
             label3.TextAlign = ContentAlignment.MiddleCenter;
@@ -143,7 +144,7 @@
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI Semibold", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label5.ForeColor = SystemColors.ActiveCaptionText;
-            label5.Location = new Point(504, 339);
+            label5.Location = new Point(510, 246);
             label5.Name = "label5";
             label5.Size = new Size(97, 38);
             label5.TabIndex = 28;
@@ -154,9 +155,9 @@
             // 
             label6.Font = new Font("Segoe UI", 14.2F);
             label6.ForeColor = SystemColors.ActiveCaptionText;
-            label6.Location = new Point(385, 377);
+            label6.Location = new Point(427, 289);
             label6.Name = "label6";
-            label6.Size = new Size(316, 164);
+            label6.Size = new Size(264, 195);
             label6.TabIndex = 27;
             label6.Text = "For an extra security Disable Remote Registry and Disable Remote Desktop Services from running.\r\nBUTTON BELOW";
             label6.TextAlign = ContentAlignment.MiddleCenter;
@@ -169,13 +170,13 @@
             Next_BTN.FlatAppearance.BorderSize = 2;
             Next_BTN.FlatAppearance.MouseDownBackColor = Color.FromArgb(102, 102, 102);
             Next_BTN.FlatAppearance.MouseOverBackColor = Color.FromArgb(242, 242, 242);
-            Next_BTN.FlatStyle = FlatStyle.Flat;
+            Next_BTN.FlatStyle = FlatStyle.System;
             Next_BTN.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            Next_BTN.Location = new Point(601, 705);
+            Next_BTN.Location = new Point(535, 622);
             Next_BTN.Name = "Next_BTN";
-            Next_BTN.Size = new Size(128, 75);
+            Next_BTN.Size = new Size(159, 72);
             Next_BTN.TabIndex = 29;
-            Next_BTN.Text = "Next";
+            Next_BTN.Text = "------>";
             Next_BTN.UseVisualStyleBackColor = false;
             Next_BTN.Click += Next_BTN_Click;
             // 
@@ -187,20 +188,20 @@
             Previous_BTN.FlatAppearance.BorderSize = 2;
             Previous_BTN.FlatAppearance.MouseDownBackColor = Color.FromArgb(102, 102, 102);
             Previous_BTN.FlatAppearance.MouseOverBackColor = Color.FromArgb(242, 242, 242);
-            Previous_BTN.FlatStyle = FlatStyle.Flat;
+            Previous_BTN.FlatStyle = FlatStyle.System;
             Previous_BTN.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            Previous_BTN.Location = new Point(21, 705);
+            Previous_BTN.Location = new Point(6, 619);
             Previous_BTN.Name = "Previous_BTN";
-            Previous_BTN.Size = new Size(128, 75);
+            Previous_BTN.Size = new Size(159, 75);
             Previous_BTN.TabIndex = 30;
-            Previous_BTN.Text = "Previous";
+            Previous_BTN.Text = "<------";
             Previous_BTN.UseVisualStyleBackColor = false;
             Previous_BTN.Click += Previous_BTN_Click;
             // 
             // Security_2
             // 
-            AutoScaleDimensions = new SizeF(18F, 45F);
-            AutoScaleMode = AutoScaleMode.Font;
+            AutoScaleDimensions = new SizeF(120F, 120F);
+            AutoScaleMode = AutoScaleMode.Dpi;
             BackColor = Color.White;
             Controls.Add(Previous_BTN);
             Controls.Add(Next_BTN);
@@ -214,11 +215,11 @@
             Controls.Add(label1);
             Controls.Add(Personalization_LBL);
             Font = new Font("Segoe UI", 19F);
-            Margin = new Padding(7);
-            MaximumSize = new Size(750, 800);
-            MinimumSize = new Size(750, 800);
+            Margin = new Padding(0);
+            MaximumSize = new Size(700, 700);
+            MinimumSize = new Size(700, 700);
             Name = "Security_2";
-            Size = new Size(750, 800);
+            Size = new Size(700, 700);
             ResumeLayout(false);
             PerformLayout();
         }

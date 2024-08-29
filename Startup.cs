@@ -6,6 +6,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Management.Automation;
 using System.Management.Automation.Runspaces;
 using System.Text;
 using System.Threading.Tasks;
@@ -44,16 +45,67 @@ namespace Win_Tweaker
         {
             pipeline.Commands.AddScript($@"Set-Service -name '{name}' -startupType '{statusType}'");
         }
-
         private void ResetToDefault(object sender, EventArgs e)
         {
             MicrosoftEdgeStartup_CB.Checked = true;
             SilentInstalls_CB.Checked = true;
         }
+
         private void Check_BTN_Click(object sender, EventArgs e)
         {
+            //using (Runspace runspace = RunspaceFactory.CreateRunspace())
+            //{
+            //    runspace.Open();
+            //    using (Pipeline pipeline = runspace.CreatePipeline())
+            //    {
+            //        string command = @"
+            //    Get-Item -Path HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\StartupApproved\Run |
+            //    Get-ItemProperty |
+            //    ForEach-Object {
+            //        $_.PSObject.Properties |
+            //        Where-Object {
+            //            $_.Name -ne 'PSPath' -and
+            //            $_.Name -ne 'PSParentPath' -and
+            //            $_.Name -ne 'PSChildName' -and
+            //            $_.Name -ne 'PSDrive' -and
+            //            $_.Name -ne 'PSProvider'
+            //        } |
+            //        ForEach-Object {
+            //            [PSCustomObject]@{
+            //                PSChildName = $_.Name
+            //                Value = $_.Value
+            //            }
+            //        }
+            //    }";
 
+            //        pipeline.Commands.AddScript(command);
+
+            //        var results = pipeline.Invoke();
+
+            //        foreach (PSObject result in results)
+            //        {
+            //            string psChildName = result.Properties["PSChildName"]?.Value?.ToString();
+
+            //            byte[] byteArray = result.Properties["Value"]?.Value as byte[];
+            //            string value;
+            //            if (byteArray != null)
+            //            {
+            //                value = System.Text.Encoding.Unicode.GetString(byteArray);
+            //            }
+            //            else
+            //            {
+            //                value = result.Properties["Value"]?.Value?.ToString();
+            //            }
+
+            //            // Output or process the values
+            //            MessageBox.Show($"PSChildName: {psChildName}, Value: {value}");
+            //        }
+
+            //        runspace.Close();
+
+            MessageBox.Show("Coming Soon!");
         }
+
         private void Apply_BTN_Click(object sender, EventArgs e)
         {
             Runspace runspace = RunspaceFactory.CreateRunspace();
@@ -80,9 +132,9 @@ namespace Win_Tweaker
                 ChangeScheduledTask("", "MicrosoftEdgeUpdateTaskMachineCore", "Disable");
                 ChangeScheduledTask("", "MicrosoftEdgeUpdateTaskMachineUA", "Disable");
 
-                ChangeService("MicrosoftEdgeElevationService", "Disable", pipeline);
-                ChangeService("edgeupdate", "Disable", pipeline);
-                ChangeService("edgeupdatem", "Disable", pipeline);
+                ChangeService("MicrosoftEdgeElevationService", "Manual", pipeline);
+                ChangeService("edgeupdate", "Manual", pipeline);
+                ChangeService("edgeupdatem", "Manual", pipeline);
 
                 ChangeRegKey("HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\ContentDeliveryManager", "SubscribedContent-310093Enabled", true, pipeline, "DWord", "0");
 
@@ -98,10 +150,6 @@ namespace Win_Tweaker
                 ChangeRegKey("HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\ContentDeliveryManager", "PreInstalledAppsEnabled", false, pipeline, "DWord", "1");
                 ChangeRegKey("HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\ContentDeliveryManager", "PreInstalledAppsEverEnabled", false, pipeline, "DWord", "1");
                 ChangeRegKey("HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\ContentDeliveryManager", "SilentInstalledAppsEnabled", false, pipeline, "DWord", "1");
-
-                ChangeRegKey("HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced", "StoreAppsOnTaskbar", true, pipeline, "DWord", "1");
-
-                ChangeRegKey("HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Feeds", "ShellFeedsTaskbarViewMode", true, pipeline, "DWord", "1");
             }
             else if (SilentInstalls_CB.Checked == false)
             {
@@ -110,14 +158,9 @@ namespace Win_Tweaker
                 ChangeRegKey("HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\ContentDeliveryManager", "PreInstalledAppsEnabled", false, pipeline, "DWord", "0");
                 ChangeRegKey("HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\ContentDeliveryManager", "PreInstalledAppsEverEnabled", false, pipeline, "DWord", "0");
                 ChangeRegKey("HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\ContentDeliveryManager", "SilentInstalledAppsEnabled", false, pipeline, "DWord", "0");
-
-                ChangeRegKey("HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced", "StoreAppsOnTaskbar", true, pipeline, "DWord", "0");
-
-                ChangeRegKey("HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Feeds", "ShellFeedsTaskbarViewMode", true, pipeline, "DWord", "2");
             }
             #endregion
 
-            //Collection<PSObject> results = pipeline.Invoke();
             pipeline.Invoke();
             runspace.Close();
 

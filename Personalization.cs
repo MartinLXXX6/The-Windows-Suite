@@ -124,6 +124,25 @@ namespace Win_Tweaker
             MessageBox.Show("PERSONALIZATION tweaks successfuly applied");
         }
 
+        private void AdvancedTS_BTN_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Runspace runspace = RunspaceFactory.CreateRunspace();
+                runspace.Open();
+                Pipeline pipeline = runspace.CreatePipeline();
+
+                pipeline.Commands.AddScript("Start-Process \"shell:::{05d7b0f4-2121-4eff-bf6b-ed3f69b894d9}\"");
+
+                pipeline.Invoke();
+                runspace.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message + "\n\n\nTHIS ERROR IS FOR TESTING. CHECK IF IT OPENED A WINDOW ON YOUR PC\nDONT PANIC, ITS ON PURPOSE\n(BY THE DEVELOPER)");
+            }
+        }
+
         private void RestartExplorer()
         {
             try

@@ -43,7 +43,7 @@ namespace Win_Tweaker
             Pipeline pipeline = runspace.CreatePipeline();
 
             ChangeService("SessionEnv", "Disable", pipeline);
-            ChangeService("TermService", "Disable", pipeline); 
+            ChangeService("TermService", "Disable", pipeline);
             ChangeService("UmRdpService", "Disable", pipeline);
 
             ChangeService("RemoteRegistry", "Disable", pipeline);
@@ -62,6 +62,11 @@ namespace Win_Tweaker
         private void Previous_BTN_Click(object sender, EventArgs e)
         {
             Main_Form.instance.OpenPage1();
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

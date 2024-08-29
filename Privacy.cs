@@ -140,18 +140,26 @@ namespace Win_Tweaker
             }
             #endregion
 
-            #region TailoredExperiences
+            #region TailoredExperiences&InkTypePersonalization
             if (TailoredExp_CB.Checked == true)
             {
                 ChangeRegKey("HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Privacy", "TailoredExperiencesWithDiagnosticDataEnabled", true, pipeline, "DWord", "1");
-
                 ChangeRegKey("HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\AdvertisingInfo", "Enabled", true, pipeline, "DWord", "1");
+
+                ChangeRegKey("HKCU:\\Software\\Microsoft\\InputPersonalization", "RestrictImplicitInkCollection", true, pipeline, "DWord", "0");
+                ChangeRegKey("HKCU:\\Software\\Microsoft\\InputPersonalization", "RestrictImplicitTextCollection", false, pipeline, "DWord", "0");
+                ChangeRegKey("HKCU:\\Software\\Microsoft\\InputPersonalization\\TrainedDataStore", "HarvestContacts", true, pipeline, "DWord", "1");
+                ChangeRegKey("HKCU:\\Software\\Microsoft\\Personalization\\Settings", "AcceptedPrivacyPolicy", true, pipeline, "DWord", "1");
             }
             else if (TailoredExp_CB.Checked == false)
             {
                 ChangeRegKey("HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Privacy", "TailoredExperiencesWithDiagnosticDataEnabled", true, pipeline, "DWord", "0");
-
                 ChangeRegKey("HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\AdvertisingInfo", "Enabled", true, pipeline, "DWord", "0");
+
+                ChangeRegKey("HKCU:\\Software\\Microsoft\\InputPersonalization", "RestrictImplicitInkCollection", true, pipeline, "DWord", "1");
+                ChangeRegKey("HKCU:\\Software\\Microsoft\\InputPersonalization", "RestrictImplicitTextCollection", false, pipeline, "DWord", "1");
+                ChangeRegKey("HKCU:\\Software\\Microsoft\\InputPersonalization\\TrainedDataStore", "HarvestContacts", true, pipeline, "DWord", "0");
+                ChangeRegKey("HKCU:\\Software\\Microsoft\\Personalization\\Settings", "AcceptedPrivacyPolicy", true, pipeline, "DWord", "0");
             }
             #endregion
 
@@ -200,8 +208,8 @@ namespace Win_Tweaker
             }
             #endregion
 
-            #region Cortana
-            if (RemoveCortana_CB.Checked == true)
+            #region Cortana&Search
+            if (Cortana_CB.Checked == false)
             {
                 ChangeRegKey("HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\Windows Search", "AllowCloudSearch", true, pipeline, "DWord", "0");
                 ChangeRegKey("HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\Windows Search", "AllowCortana", false, pipeline, "DWord", "0");
@@ -214,7 +222,7 @@ namespace Win_Tweaker
 
                 ChangeRegKey("HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Windows Search", "CortanaConsent", true, pipeline, "DWord", "0");
             }
-            else if (RemoveCortana_CB.Checked == false)
+            else if (Cortana_CB.Checked == true)
             {
                 ChangeRegKey("HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\Windows Search", "AllowCloudSearch", true, pipeline, "DWord", "1");
                 ChangeRegKey("HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\Windows Search", "AllowCortana", false, pipeline, "DWord", "1");
@@ -241,6 +249,15 @@ namespace Win_Tweaker
                 ChangeRegKey("HKCU:\\SOFTWARE\\Policies\\Microsoft\\Windows\\Windows Feeds", "EnableFeeds", true, pipeline, "DWord", "1");
                 ChangeRegKey("HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Feeds", "ShellFeedsTaskbarViewMode", true, pipeline, "DWord", "0");
                 ChangeRegKey("HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer", "HideSCAMeetNow", true, pipeline, "DWord", "0");
+
+                ChangeRegKey("HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\ContentDeliveryManager", "SubscribedContent-338393Enabled", true, pipeline, "DWord", "1");
+                ChangeRegKey("HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\ContentDeliveryManager", " SubscribedContent-353694Enabled", false, pipeline, "DWord", "1");
+                ChangeRegKey("HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\ContentDeliveryManager", " SubscribedContent-353696Enabled", false, pipeline, "DWord", "1");
+
+                ChangeRegKey("HKCU:\\Control Panel\\International\\User Profile", "HttpAcceptLanguageOptOut", true, pipeline, "DWord", "0");
+
+                ChangeRegKey("HKCU:\\Software\\Policies\\Microsoft\\Windows\\EdgeUI", "DisableMFUTracking", true, pipeline, "DWord", "0");
+                ChangeRegKey("HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\EdgeUI", "DisableMFUTracking", true, pipeline, "DWord", "0");
             }
             else if (ExtraTel_CB.Checked == false)
             {
@@ -256,17 +273,26 @@ namespace Win_Tweaker
                 ChangeRegKey("HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer", "HideSCAMeetNow", true, pipeline, "DWord", "1");
                 ChangeRegKey("HKCU:\\SOFTWARE\\Microsoft\\Siuf\\Rules", "NumberOfSIUFInPeriod", true, pipeline, "DWord", "0");
                 ChangeRegKey("HKLM:\\SYSTEM\\CurrentControlSet\\Services\\LanmanServer\\Parameters", "IRPStackSize", true, pipeline, "DWord", "1e");
+
+                ChangeRegKey("HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\ContentDeliveryManager", "SubscribedContent-338393Enabled", true, pipeline, "DWord", "0");
+                ChangeRegKey("HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\ContentDeliveryManager", "SubscribedContent-353694Enabled", false, pipeline, "DWord", "0");
+                ChangeRegKey("HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\ContentDeliveryManager", "SubscribedContent-353696Enabled", false, pipeline, "DWord", "0");
+
+                ChangeRegKey("HKCU:\\Control Panel\\International\\User Profile", "HttpAcceptLanguageOptOut", true, pipeline, "DWord", "1");
+
+                ChangeRegKey("HKCU:\\Software\\Policies\\Microsoft\\Windows\\EdgeUI", "DisableMFUTracking", true, pipeline, "DWord", "1");
+                ChangeRegKey("HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\EdgeUI", "DisableMFUTracking", true, pipeline, "DWord", "1");
             }
             #endregion
 
             #region LocationCameraMicrophone
-            if (AccessToPhoneMic_DD.SelectedItem == "None")
+            if (AccessToPhoneMic_DD.SelectedItem == "Microphone and Camera (Recommended)")
             {
                 ChangeRegKey("HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\CapabilityAccessManager\\ConsentStore\\activity", "Value", true, pipeline, "string", "Deny");
                 ChangeRegKey("HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\CapabilityAccessManager\\ConsentStore\\location", "Value", true, pipeline, "string", "Deny");
                 ChangeRegKey("HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\CapabilityAccessManager\\ConsentStore\\appDiagnostics", "Value", true, pipeline, "string", "Deny");
-                ChangeRegKey("HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\CapabilityAccessManager\\ConsentStore\\webcam", "Value", true, pipeline, "string", "Deny");
-                ChangeRegKey("HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\CapabilityAccessManager\\ConsentStore\\microphone", "Value", true, pipeline, "string", "Deny");
+                ChangeRegKey("HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\CapabilityAccessManager\\ConsentStore\\webcam", "Value", true, pipeline, "string", "Allow");
+                ChangeRegKey("HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\CapabilityAccessManager\\ConsentStore\\microphone", "Value", true, pipeline, "string", "Allow");
                 ChangeRegKey("HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\CapabilityAccessManager\\ConsentStore\\userNotificationListener", "Value", true, pipeline, "string", "Deny");
                 ChangeRegKey("HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\CapabilityAccessManager\\ConsentStore\\userAccountInformation", "Value", true, pipeline, "string", "Deny");
                 ChangeRegKey("HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\CapabilityAccessManager\\ConsentStore\\contacts", "Value", true, pipeline, "string", "Deny");
@@ -330,12 +356,12 @@ namespace Win_Tweaker
                 ChangeRegKey("HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\CapabilityAccessManager\\ConsentStore\\wifiData", "Value", true, pipeline, "string", "Allow");
                 ChangeRegKey("HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\CapabilityAccessManager\\ConsentStore\\wiFiDirect", "Value", true, pipeline, "string", "Allow");
             }
-            else if (AccessToPhoneMic_DD.SelectedItem == "Microphone, Location, Calendar and Email")
+            else if (AccessToPhoneMic_DD.SelectedItem == "Microphone, Camera, Location, Calendar and Email")
             {
                 ChangeRegKey("HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\CapabilityAccessManager\\ConsentStore\\activity", "Value", true, pipeline, "string", "Deny");
                 ChangeRegKey("HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\CapabilityAccessManager\\ConsentStore\\location", "Value", true, pipeline, "string", "Allow");
                 ChangeRegKey("HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\CapabilityAccessManager\\ConsentStore\\appDiagnostics", "Value", true, pipeline, "string", "Deny");
-                ChangeRegKey("HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\CapabilityAccessManager\\ConsentStore\\webcam", "Value", true, pipeline, "string", "Deny");
+                ChangeRegKey("HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\CapabilityAccessManager\\ConsentStore\\webcam", "Value", true, pipeline, "string", "Allow");
                 ChangeRegKey("HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\CapabilityAccessManager\\ConsentStore\\microphone", "Value", true, pipeline, "string", "Allow");
                 ChangeRegKey("HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\CapabilityAccessManager\\ConsentStore\\userNotificationListener", "Value", true, pipeline, "string", "Deny");
                 ChangeRegKey("HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\CapabilityAccessManager\\ConsentStore\\userAccountInformation", "Value", true, pipeline, "string", "Deny");
@@ -365,7 +391,7 @@ namespace Win_Tweaker
                 ChangeRegKey("HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\CapabilityAccessManager\\ConsentStore\\wifiData", "Value", true, pipeline, "string", "Deny");
                 ChangeRegKey("HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\CapabilityAccessManager\\ConsentStore\\wiFiDirect", "Value", true, pipeline, "string", "Deny");
             }
-            else if (AccessToPhoneMic_DD.SelectedItem == "Microphone, Location, Calendar, Email, Bluetooth, Cellular Data, Phone and Webcam")
+            else if (AccessToPhoneMic_DD.SelectedItem == "Microphone, Camera, Location, Calendar, Email, Bluetooth, Cellular Data and Phone")
             {
                 ChangeRegKey("HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\CapabilityAccessManager\\ConsentStore\\activity", "Value", true, pipeline, "string", "Deny");
                 ChangeRegKey("HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\CapabilityAccessManager\\ConsentStore\\location", "Value", true, pipeline, "string", "Allow");
@@ -402,7 +428,6 @@ namespace Win_Tweaker
             }
             #endregion
 
-            //Collection<PSObject> results = pipeline.Invoke();
             pipeline.Invoke();
             runspace.Close();
 
@@ -441,7 +466,7 @@ namespace Win_Tweaker
             ScheduledTelemetry_CB.Checked = true;
             TailoredExp_CB.Checked = true;
             SMSuggestions_CB.Checked = true;
-            RemoveCortana_CB.Checked = false;
+            Cortana_CB.Checked = true;
             ServicesTel_CB.Checked = true;
             ExtraTel_CB.Checked = true;
             AccessToPhoneMic_DD.SelectedItem = "All (default)";

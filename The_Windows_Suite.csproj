@@ -3,23 +3,23 @@
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
     <TargetFramework>net8.0-windows</TargetFramework>
-    <RootNamespace>Win_Tweaker</RootNamespace>
+    <RootNamespace>The_Windows_Suite</RootNamespace>
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
     <StartupObject></StartupObject>
     <ApplicationManifest>app.manifest</ApplicationManifest>
-    <ApplicationIcon>Logo_2-removebg-preview.ico</ApplicationIcon>
+    <ApplicationIcon>Shield.ico</ApplicationIcon>
     <ErrorReport>none</ErrorReport>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="Shield.ico" />
+  </ItemGroup>
 
 	<ItemGroup>
 		<PackageReference Include="System.Management.Automation" Version="7.4.3" />
 	</ItemGroup>
-	
-  <ItemGroup>
-    <Content Include="Logo_2-removebg-preview.ico" />
-  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.PowerShell.SDK" Version="7.4.3" />
@@ -31,6 +31,11 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Update="Properties\Settings.Designer.cs">
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>
@@ -38,6 +43,13 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
   </ItemGroup>
 
 </Project>

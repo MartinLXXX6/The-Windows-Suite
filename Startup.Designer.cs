@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Startup));
             Personalization_LBL = new Label();
             Apply_BTN = new Button();
             StartupApps_RTB = new RichTextBox();
@@ -39,6 +40,7 @@
             SilentInstalls = new Label();
             ResetToDefault_BTN = new Button();
             toolTip1 = new ToolTip(components);
+            label1 = new Label();
             SuspendLayout();
             // 
             // Personalization_LBL
@@ -46,7 +48,7 @@
             Personalization_LBL.AutoSize = true;
             Personalization_LBL.Font = new Font("Segoe UI Black", 22.2F, FontStyle.Bold);
             Personalization_LBL.ForeColor = SystemColors.ActiveCaptionText;
-            Personalization_LBL.Location = new Point(278, 40);
+            Personalization_LBL.Location = new Point(253, 40);
             Personalization_LBL.Name = "Personalization_LBL";
             Personalization_LBL.Size = new Size(195, 50);
             Personalization_LBL.TabIndex = 16;
@@ -61,11 +63,11 @@
             Apply_BTN.FlatAppearance.BorderSize = 2;
             Apply_BTN.FlatAppearance.MouseDownBackColor = Color.FromArgb(102, 102, 102);
             Apply_BTN.FlatAppearance.MouseOverBackColor = Color.FromArgb(242, 242, 242);
-            Apply_BTN.FlatStyle = FlatStyle.Flat;
+            Apply_BTN.FlatStyle = FlatStyle.System;
             Apply_BTN.Font = new Font("Segoe UI Semibold", 19.2F, FontStyle.Bold);
-            Apply_BTN.Location = new Point(10, 716);
+            Apply_BTN.Location = new Point(6, 622);
             Apply_BTN.Name = "Apply_BTN";
-            Apply_BTN.Size = new Size(358, 75);
+            Apply_BTN.Size = new Size(320, 72);
             Apply_BTN.TabIndex = 18;
             Apply_BTN.Text = "Apply";
             toolTip1.SetToolTip(Apply_BTN, "Run tweaks");
@@ -75,13 +77,14 @@
             // StartupApps_RTB
             // 
             StartupApps_RTB.BackColor = Color.LightGray;
+            StartupApps_RTB.BorderStyle = BorderStyle.None;
             StartupApps_RTB.Font = new Font("Segoe UI", 11F);
-            StartupApps_RTB.Location = new Point(10, 106);
+            StartupApps_RTB.Location = new Point(3, 136);
             StartupApps_RTB.Name = "StartupApps_RTB";
             StartupApps_RTB.ReadOnly = true;
-            StartupApps_RTB.Size = new Size(730, 409);
+            StartupApps_RTB.Size = new Size(694, 314);
             StartupApps_RTB.TabIndex = 19;
-            StartupApps_RTB.Text = "                                                        App                                                 |            Status          \n\nComing soon...";
+            StartupApps_RTB.Text = resources.GetString("StartupApps_RTB.Text");
             // 
             // Check_BTN
             // 
@@ -91,13 +94,14 @@
             Check_BTN.FlatAppearance.BorderSize = 2;
             Check_BTN.FlatAppearance.MouseDownBackColor = Color.FromArgb(102, 102, 102);
             Check_BTN.FlatAppearance.MouseOverBackColor = Color.FromArgb(242, 242, 242);
-            Check_BTN.FlatStyle = FlatStyle.Flat;
+            Check_BTN.FlatStyle = FlatStyle.System;
             Check_BTN.Font = new Font("Segoe UI Semibold", 19.2F, FontStyle.Bold);
-            Check_BTN.Location = new Point(382, 716);
+            Check_BTN.Location = new Point(97, 544);
             Check_BTN.Name = "Check_BTN";
-            Check_BTN.Size = new Size(358, 75);
+            Check_BTN.Size = new Size(507, 72);
             Check_BTN.TabIndex = 17;
             Check_BTN.Text = "Check";
+            toolTip1.SetToolTip(Check_BTN, "Check the current apps found on the registry startup entries");
             Check_BTN.UseVisualStyleBackColor = false;
             Check_BTN.Click += Check_BTN_Click;
             // 
@@ -106,32 +110,32 @@
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label3.ForeColor = Color.FromArgb(64, 64, 64);
-            label3.Location = new Point(10, 538);
+            label3.Location = new Point(6, 462);
             label3.Name = "label3";
-            label3.Size = new Size(293, 38);
+            label3.Size = new Size(203, 38);
             label3.TabIndex = 20;
-            label3.Text = "Enable Microsoft Edge";
-            toolTip1.SetToolTip(label3, "Microsoft Edge on startup and all its related processes such as Updates");
+            label3.Text = "Microsoft Edge";
+            toolTip1.SetToolTip(label3, "Microsoft Edge at startup and all its related processes such as Updates.");
             // 
             // MicrosoftEdgeStartup_CB
             // 
-            MicrosoftEdgeStartup_CB.AutoSize = true;
             MicrosoftEdgeStartup_CB.Checked = true;
             MicrosoftEdgeStartup_CB.CheckState = CheckState.Checked;
-            MicrosoftEdgeStartup_CB.Location = new Point(152, 579);
+            MicrosoftEdgeStartup_CB.FlatStyle = FlatStyle.System;
+            MicrosoftEdgeStartup_CB.Location = new Point(99, 503);
             MicrosoftEdgeStartup_CB.Name = "MicrosoftEdgeStartup_CB";
-            MicrosoftEdgeStartup_CB.Size = new Size(18, 17);
+            MicrosoftEdgeStartup_CB.Size = new Size(16, 16);
             MicrosoftEdgeStartup_CB.TabIndex = 21;
             MicrosoftEdgeStartup_CB.UseVisualStyleBackColor = true;
             // 
             // SilentInstalls_CB
             // 
-            SilentInstalls_CB.AutoSize = true;
             SilentInstalls_CB.Checked = true;
             SilentInstalls_CB.CheckState = CheckState.Checked;
-            SilentInstalls_CB.Location = new Point(607, 579);
+            SilentInstalls_CB.FlatStyle = FlatStyle.System;
+            SilentInstalls_CB.Location = new Point(563, 503);
             SilentInstalls_CB.Name = "SilentInstalls_CB";
-            SilentInstalls_CB.Size = new Size(18, 17);
+            SilentInstalls_CB.Size = new Size(16, 16);
             SilentInstalls_CB.TabIndex = 23;
             SilentInstalls_CB.UseVisualStyleBackColor = true;
             // 
@@ -140,12 +144,12 @@
             SilentInstalls.AutoSize = true;
             SilentInstalls.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             SilentInstalls.ForeColor = Color.FromArgb(64, 64, 64);
-            SilentInstalls.Location = new Point(477, 538);
+            SilentInstalls.Location = new Point(440, 462);
             SilentInstalls.Name = "SilentInstalls";
             SilentInstalls.Size = new Size(254, 38);
             SilentInstalls.TabIndex = 22;
             SilentInstalls.Text = "Allow Silent Installs";
-            toolTip1.SetToolTip(SilentInstalls, "Background Windows Installs");
+            toolTip1.SetToolTip(SilentInstalls, resources.GetString("SilentInstalls.ToolTip"));
             // 
             // ResetToDefault_BTN
             // 
@@ -155,20 +159,33 @@
             ResetToDefault_BTN.FlatAppearance.BorderSize = 2;
             ResetToDefault_BTN.FlatAppearance.MouseDownBackColor = Color.FromArgb(102, 102, 102);
             ResetToDefault_BTN.FlatAppearance.MouseOverBackColor = Color.FromArgb(242, 242, 242);
-            ResetToDefault_BTN.FlatStyle = FlatStyle.Flat;
+            ResetToDefault_BTN.FlatStyle = FlatStyle.System;
             ResetToDefault_BTN.Font = new Font("Segoe UI Semibold", 19.2F, FontStyle.Bold);
-            ResetToDefault_BTN.Location = new Point(10, 629);
+            ResetToDefault_BTN.Location = new Point(374, 622);
             ResetToDefault_BTN.Name = "ResetToDefault_BTN";
-            ResetToDefault_BTN.Size = new Size(263, 81);
+            ResetToDefault_BTN.Size = new Size(320, 72);
             ResetToDefault_BTN.TabIndex = 24;
             ResetToDefault_BTN.Text = "Reset to default";
             ResetToDefault_BTN.UseVisualStyleBackColor = false;
             ResetToDefault_BTN.Click += ResetToDefault;
             // 
+            // label1
+            // 
+            label1.BackColor = Color.LightGray;
+            label1.Font = new Font("Segoe UI Semilight", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.FromArgb(64, 64, 64);
+            label1.Location = new Point(3, 104);
+            label1.Name = "label1";
+            label1.Size = new Size(694, 31);
+            label1.TabIndex = 25;
+            label1.Text = "                                                    App                                               |           Status         ";
+            // 
             // Startup
             // 
-            AutoScaleDimensions = new SizeF(18F, 45F);
-            AutoScaleMode = AutoScaleMode.Font;
+            AutoScaleDimensions = new SizeF(120F, 120F);
+            AutoScaleMode = AutoScaleMode.Dpi;
+            BackColor = Color.White;
+            Controls.Add(label1);
             Controls.Add(ResetToDefault_BTN);
             Controls.Add(SilentInstalls_CB);
             Controls.Add(SilentInstalls);
@@ -179,11 +196,11 @@
             Controls.Add(Check_BTN);
             Controls.Add(Personalization_LBL);
             Font = new Font("Segoe UI", 19F);
-            Margin = new Padding(7);
-            MaximumSize = new Size(750, 800);
-            MinimumSize = new Size(750, 800);
+            Margin = new Padding(0);
+            MaximumSize = new Size(700, 700);
+            MinimumSize = new Size(700, 700);
             Name = "Startup";
-            Size = new Size(750, 800);
+            Size = new Size(700, 700);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -200,5 +217,6 @@
         private Label SilentInstalls;
         private Button ResetToDefault_BTN;
         private ToolTip toolTip1;
+        private Label label1;
     }
 }

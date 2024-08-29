@@ -1,10 +1,12 @@
 using Microsoft.CodeAnalysis.CSharp.Syntax;
+using The_Windows_Suite.Properties;
 
 namespace Win_Tweaker
 {
     public partial class Main_Form : Form
     {
         public static Main_Form instance;
+        private static ShortcutMessageBox shortcutMessageBox;
 
         public Main_Form()
         {
@@ -15,6 +17,12 @@ namespace Win_Tweaker
 
         private void Main_Form_Load(object sender, EventArgs e)
         {
+            if (Settings.Default["ShortcutMessage"].ToString() == "True")
+            {
+                shortcutMessageBox = new ShortcutMessageBox();
+                shortcutMessageBox.ShowDialog();
+            }
+
             home1.Show();
             pP_Results1.Hide();
             privacy1.Hide();
@@ -23,6 +31,7 @@ namespace Win_Tweaker
             startup1.Hide();
             features1.Hide();
             security_11.Hide();
+            security_21.Hide();
         }
 
         private void Home_BTN_Click(object sender, EventArgs e)
@@ -34,6 +43,7 @@ namespace Win_Tweaker
             startup1.Hide();
             features1.Hide();
             security_11.Hide();
+            security_21.Hide();
         }
 
         private void Personalization_BTN_Click(object sender, EventArgs e)
@@ -45,6 +55,7 @@ namespace Win_Tweaker
             startup1.Hide();
             features1.Hide();
             security_11.Hide();
+            security_21.Hide();
         }
 
         private void Privacy_BTN_Click(object sender, EventArgs e)
@@ -56,6 +67,7 @@ namespace Win_Tweaker
             startup1.Hide();
             features1.Hide();
             security_11.Hide();
+            security_21.Hide();
         }
 
         private void Optimization_BTN_Click(object sender, EventArgs e)
@@ -67,6 +79,7 @@ namespace Win_Tweaker
             startup1.Hide();
             features1.Hide();
             security_11.Hide();
+            security_21.Hide();
         }
 
         private void Startup_BTN_Click(object sender, EventArgs e)
@@ -78,6 +91,7 @@ namespace Win_Tweaker
             privacy1.Hide();
             features1.Hide();
             security_11.Hide();
+            security_21.Hide();
         }
 
         private void Features_BTN_Click(object sender, EventArgs e)
@@ -89,6 +103,7 @@ namespace Win_Tweaker
             home1.Hide();
             privacy1.Hide();
             security_11.Hide();
+            security_21.Hide();
         }
 
         private void Security_BTN_Click(object sender, EventArgs e)
@@ -100,6 +115,7 @@ namespace Win_Tweaker
             personalization1.Hide();
             home1.Hide();
             privacy1.Hide();
+            security_21.Hide();
         }
 
         public void PPResultsShow()
@@ -123,8 +139,8 @@ namespace Win_Tweaker
 
         public void OpenPage3()
         {
-            security_11.Hide();
-            security_21.Hide();
+            //security_11.Hide();
+            //security_21.Hide();
             //security_31.Show();
         }
     }

@@ -31,6 +31,9 @@
     <Compile Update="Security_2.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="ShortcutMessageBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Startup.cs">
       <SubType>UserControl</SubType>
     </Compile>

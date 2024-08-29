@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ShortcutMessageBox));
             OK_BTN = new Button();
             Optimization_LBL = new Label();
             DontSA_CB = new CheckBox();
@@ -152,6 +153,7 @@
             Controls.Add(Optimization_LBL);
             Controls.Add(OK_BTN);
             FormBorderStyle = FormBorderStyle.None;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "ShortcutMessageBox";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "WARNING";

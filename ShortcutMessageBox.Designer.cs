@@ -97,7 +97,7 @@
             // 
             DesktopShort_CB.BackColor = Color.Transparent;
             DesktopShort_CB.FlatStyle = FlatStyle.System;
-            DesktopShort_CB.Location = new Point(552, 179);
+            DesktopShort_CB.Location = new Point(566, 182);
             DesktopShort_CB.Name = "DesktopShort_CB";
             DesktopShort_CB.Size = new Size(16, 16);
             DesktopShort_CB.TabIndex = 28;
@@ -108,22 +108,22 @@
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.FromArgb(64, 64, 64);
-            label1.Location = new Point(233, 165);
+            label1.Location = new Point(241, 165);
             label1.Name = "label1";
-            label1.Size = new Size(312, 38);
+            label1.Size = new Size(319, 38);
             label1.TabIndex = 29;
-            label1.Text = "Create desktop shortcut";
+            label1.Text = "Create Desktop Shortcut";
             // 
             // label2
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label2.ForeColor = Color.FromArgb(64, 64, 64);
-            label2.Location = new Point(129, 247);
+            label2.Location = new Point(136, 247);
             label2.Name = "label2";
-            label2.Size = new Size(519, 38);
+            label2.Size = new Size(529, 38);
             label2.TabIndex = 31;
-            label2.Text = "Create apps list shortcut (recommended)";
+            label2.Text = "Create All Apps Shortcut (Recommended)";
             // 
             // appShort_CB
             // 
@@ -131,7 +131,7 @@
             appShort_CB.Checked = true;
             appShort_CB.CheckState = CheckState.Checked;
             appShort_CB.FlatStyle = FlatStyle.System;
-            appShort_CB.Location = new Point(655, 261);
+            appShort_CB.Location = new Point(671, 264);
             appShort_CB.Name = "appShort_CB";
             appShort_CB.Size = new Size(16, 16);
             appShort_CB.TabIndex = 30;

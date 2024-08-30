@@ -9,3 +9,6 @@
 - Now go over the Smart Screen prompt by clicking on "more options" and "Run Anyway".
 - Finally select "Yes" on the UAC prompt if necessary.
 - Done!!!
+
+# Uninstall
+- Delete the whole folder and you are good to go.

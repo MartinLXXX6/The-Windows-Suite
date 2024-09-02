@@ -11,9 +11,10 @@
 - Done!!!
 
 # Uninstall
+---Standard Uninstall---
 - Deleting the whole folder grants you that the app is uninstalled.
 
-#Deep Uninstall
+---Deep Uninstall---
 - To uninstall the app completely leaving no leftovers on your system follow this steps.
 1. Delete the folder.
 2. Press Win + R and type %appdata%

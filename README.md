@@ -11,4 +11,10 @@
 - Done!!!
 
 # Uninstall
-- Deleting the whole folder grants you that the app is uninstalled. This tool doesn't create any leftovers as is a portable version.
+- Deleting the whole folder grants you that the app is uninstalled.
+
+#Deep Uninstall
+- To uninstall the app completely leaving no leftovers on your system follow this steps.
+1. Delete the folder.
+2. Press Win + R and type %appdata%
+3. Now locate the folder called "The_Windows_Suite" and delete it.

@@ -11,4 +11,4 @@
 - Done!!!
 
 # Uninstall
-- Delete the whole folder and you are good to go. This tool doesn't create any leftovers as is a portable version.
+- Deleting the whole folder grants you that the app is uninstalled. This tool doesn't create any leftovers as is a portable version.

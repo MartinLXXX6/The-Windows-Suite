@@ -17,5 +17,5 @@
 @ Deep Uninstall
 - To uninstall the app completely leaving no leftovers on your system follow this steps.
 1. Delete the folder.
-2. Press Win + R and type %appdata%
+2. Press Win + R and type '%localappdata%' or 'shell:Local AppData'
 3. Now locate the folder called "The_Windows_Suite" and delete it.

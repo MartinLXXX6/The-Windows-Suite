@@ -6,7 +6,7 @@
 # RUN THE APP
 - Download and Extract the folder from the realeases.
 - Look for the file on the folder called "The_Windows_Suite.exe" and double click to Run it. (The one with the icon)
-- Now go over the Smart Screen prompt by clicking on "more info" and "Run Anyway".
+- Now go over the Smart Screen prompt by clicking on "More info" and "Run anyway".
 - Finally select "Yes" on the UAC prompt if necessary.
 - Done!!!
 

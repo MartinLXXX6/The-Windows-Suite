@@ -4,7 +4,7 @@
 - Windows Powershell.
 
 # RUN THE APP
-- Download and Extract the folder from the realeases.
+- Download and extract the folder from the releases.
 - Look for the file on the folder called "The_Windows_Suite.exe" and double click to Run it. (The one with the icon)
 - Now go over the Smart Screen prompt by clicking on "More info" and "Run anyway".
 - Finally select "Yes" on the UAC prompt if necessary.

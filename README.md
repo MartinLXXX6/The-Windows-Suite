@@ -3,14 +3,14 @@
 - System Type	x64-based PC.
 - Windows Powershell.
 
-# RUN THE APP
+# RUN
 - Download and extract the folder from the releases.
 - Look for the file on the folder called "The_Windows_Suite.exe" and double click to Run it. (The one with the icon)
 - Now go over the Smart Screen prompt by clicking on "More info" and "Run anyway".
 - Finally select "Yes" on the UAC prompt if necessary.
 - Done!!!
 
-# Uninstall
+# UNINSTALL
 @ Standard Uninstall
 - Deleting the whole folder grants you that the app is uninstalled.
 

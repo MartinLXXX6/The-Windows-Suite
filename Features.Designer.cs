@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Features));
             Features_LBL = new Label();
             CM_DDM = new ComboBox();
             label8 = new Label();
@@ -41,6 +42,13 @@
             toolTip1 = new ToolTip(components);
             UninstallApp_DD = new ComboBox();
             label3 = new Label();
+            label4 = new Label();
+            ExplorerRibbon_DDM = new ComboBox();
+            label5 = new Label();
+            label6 = new Label();
+            label7 = new Label();
+            label9 = new Label();
+            label10 = new Label();
             SuspendLayout();
             // 
             // Features_LBL
@@ -80,7 +88,7 @@
             label8.Size = new Size(244, 38);
             label8.TabIndex = 35;
             label8.Text = "Old Context Menu";
-            toolTip1.SetToolTip(label8, "Enable Windows 10 context menu for Windows 11.");
+            toolTip1.SetToolTip(label8, "Enable Windows 10 context menu for Windows 11.\r\n-WINDOWS 11 ONLY");
             // 
             // PV_DDM
             // 
@@ -119,7 +127,7 @@
             VL_DDM.FormattingEnabled = true;
             VL_DDM.IntegralHeight = false;
             VL_DDM.Items.AddRange(new object[] { "Enable", "Disable" });
-            VL_DDM.Location = new Point(75, 273);
+            VL_DDM.Location = new Point(460, 298);
             VL_DDM.Name = "VL_DDM";
             VL_DDM.Size = new Size(166, 36);
             VL_DDM.TabIndex = 40;
@@ -129,12 +137,12 @@
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label2.ForeColor = Color.FromArgb(64, 64, 64);
-            label2.Location = new Point(34, 232);
+            label2.Location = new Point(418, 257);
             label2.Name = "label2";
             label2.Size = new Size(252, 38);
             label2.TabIndex = 39;
             label2.Text = "Old Volume Layout";
-            toolTip1.SetToolTip(label2, "Enable the Windows 7 volume layout style for Windows 10.");
+            toolTip1.SetToolTip(label2, "Enable the Windows 7 volume layout style for Windows 10.\r\n-WINDOWS 10 ONLY");
             // 
             // Reset_BTN
             // 
@@ -151,7 +159,7 @@
             Reset_BTN.Size = new Size(320, 72);
             Reset_BTN.TabIndex = 42;
             Reset_BTN.Text = "Reset to default";
-            toolTip1.SetToolTip(Reset_BTN, "Reset the Personalization tweaks to Windows default values. (Requires Apply)");
+            toolTip1.SetToolTip(Reset_BTN, "Reset the tweaks from this tab to Windows default values. (Requires Apply)");
             Reset_BTN.UseVisualStyleBackColor = false;
             Reset_BTN.Click += ResetToDefault;
             // 
@@ -170,7 +178,7 @@
             Apply_BTN.Size = new Size(320, 72);
             Apply_BTN.TabIndex = 41;
             Apply_BTN.Text = "Apply";
-            toolTip1.SetToolTip(Apply_BTN, "Run tweaks");
+            toolTip1.SetToolTip(Apply_BTN, "Run the tweaks found on the current tab.");
             Apply_BTN.UseVisualStyleBackColor = false;
             Apply_BTN.Click += Apply_BTN_Click;
             // 
@@ -188,7 +196,7 @@
             UninstallApp_DD.Name = "UninstallApp_DD";
             UninstallApp_DD.Size = new Size(325, 36);
             UninstallApp_DD.TabIndex = 44;
-            toolTip1.SetToolTip(UninstallApp_DD, "All=Let Microsoft access all data\r\nNone=Restrict Microsoft from accessing all data");
+            toolTip1.SetToolTip(UninstallApp_DD, "Coming soon...");
             // 
             // label3
             // 
@@ -200,13 +208,107 @@
             label3.Size = new Size(445, 38);
             label3.TabIndex = 43;
             label3.Text = "Uninstall a Windows App/Package ";
-            toolTip1.SetToolTip(label3, "Uninstall a Windows Package from your windows copy");
+            toolTip1.SetToolTip(label3, "Uninstall a Windows Package from Windows.\r\n-WINDOWS 10 & 11");
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label4.ForeColor = Color.FromArgb(64, 64, 64);
+            label4.Location = new Point(8, 257);
+            label4.Name = "label4";
+            label4.Size = new Size(301, 38);
+            label4.TabIndex = 45;
+            label4.Text = "Win10 Explorer Ribbon";
+            toolTip1.SetToolTip(label4, resources.GetString("label4.ToolTip"));
+            // 
+            // ExplorerRibbon_DDM
+            // 
+            ExplorerRibbon_DDM.BackColor = Color.Silver;
+            ExplorerRibbon_DDM.DropDownStyle = ComboBoxStyle.DropDownList;
+            ExplorerRibbon_DDM.FlatStyle = FlatStyle.System;
+            ExplorerRibbon_DDM.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            ExplorerRibbon_DDM.ForeColor = Color.Black;
+            ExplorerRibbon_DDM.FormattingEnabled = true;
+            ExplorerRibbon_DDM.IntegralHeight = false;
+            ExplorerRibbon_DDM.Items.AddRange(new object[] { "Add (Normal Window)", "Add (Maximized Window)" });
+            ExplorerRibbon_DDM.Location = new Point(8, 298);
+            ExplorerRibbon_DDM.Name = "ExplorerRibbon_DDM";
+            ExplorerRibbon_DDM.Size = new Size(301, 36);
+            ExplorerRibbon_DDM.TabIndex = 46;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.BackColor = Color.White;
+            label5.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label5.ForeColor = Color.DimGray;
+            label5.Location = new Point(487, 337);
+            label5.Name = "label5";
+            label5.Size = new Size(111, 25);
+            label5.TabIndex = 47;
+            label5.Text = "Windows 10";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.BackColor = Color.White;
+            label6.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label6.ForeColor = Color.DimGray;
+            label6.Location = new Point(104, 337);
+            label6.Name = "label6";
+            label6.Size = new Size(111, 25);
+            label6.TabIndex = 48;
+            label6.Text = "Windows 11";
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.BackColor = Color.White;
+            label7.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label7.ForeColor = Color.DimGray;
+            label7.Location = new Point(104, 202);
+            label7.Name = "label7";
+            label7.Size = new Size(111, 25);
+            label7.TabIndex = 49;
+            label7.Text = "Windows 11";
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.BackColor = Color.White;
+            label9.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label9.ForeColor = Color.DimGray;
+            label9.Location = new Point(467, 202);
+            label9.Name = "label9";
+            label9.Size = new Size(155, 25);
+            label9.TabIndex = 50;
+            label9.Text = "Windows 10 && 11";
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.BackColor = Color.White;
+            label10.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label10.ForeColor = Color.DimGray;
+            label10.Location = new Point(273, 595);
+            label10.Name = "label10";
+            label10.Size = new Size(155, 25);
+            label10.TabIndex = 51;
+            label10.Text = "Windows 10 && 11";
             // 
             // Features
             // 
             AutoScaleDimensions = new SizeF(120F, 120F);
             AutoScaleMode = AutoScaleMode.Dpi;
             BackColor = Color.White;
+            Controls.Add(label10);
+            Controls.Add(label9);
+            Controls.Add(label7);
+            Controls.Add(label6);
+            Controls.Add(label5);
+            Controls.Add(ExplorerRibbon_DDM);
+            Controls.Add(label4);
             Controls.Add(UninstallApp_DD);
             Controls.Add(label3);
             Controls.Add(Reset_BTN);
@@ -241,5 +343,12 @@
         private ToolTip toolTip1;
         private ComboBox UninstallApp_DD;
         private Label label3;
+        private ComboBox ExplorerRibbon_DDM;
+        private Label label4;
+        private Label label5;
+        private Label label6;
+        private Label label7;
+        private Label label9;
+        private Label label10;
     }
 }

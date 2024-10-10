@@ -41,6 +41,7 @@
             Next_BTN = new Button();
             Previous_BTN = new Button();
             toolTip1 = new ToolTip(components);
+            label13 = new Label();
             SuspendLayout();
             // 
             // Personalization_LBL
@@ -63,7 +64,7 @@
             label2.Name = "label2";
             label2.Size = new Size(681, 102);
             label2.TabIndex = 20;
-            label2.Text = "Disable Remote Desktop and Remote Registry.This are a big security risk as anyone can access your computer remotely.\r\nNote: On Windows Home Edition is not possible to turn it on.\r\n";
+            label2.Text = "Disable Remote Desktop and Remote Registry. These are big security risks as anyone can access your computer remotely.\r\nNote: On Windows Home Edition is not possible to turn it on.\r\n";
             label2.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // label1
@@ -111,7 +112,7 @@
             RRRDServices_BTN.Size = new Size(262, 120);
             RRRDServices_BTN.TabIndex = 24;
             RRRDServices_BTN.Text = "Disable Remote Reg. and Remote Desk. Services";
-            toolTip1.SetToolTip(RRRDServices_BTN, "Disable the services responsible for the Remote Registry function and Remote Desktop");
+            toolTip1.SetToolTip(RRRDServices_BTN, "Disable the services responsible for Remote Registry and Remote Desktop.\r\n-WINDOWS 10 & 11");
             RRRDServices_BTN.UseVisualStyleBackColor = false;
             RRRDServices_BTN.Click += RRRDServices_BTN_Click;
             // 
@@ -159,7 +160,7 @@
             label6.Name = "label6";
             label6.Size = new Size(264, 195);
             label6.TabIndex = 27;
-            label6.Text = "For an extra security Disable Remote Registry and Disable Remote Desktop Services from running.\r\nBUTTON BELOW";
+            label6.Text = "For extra security Disable Remote Registry and Disable Remote Desktop Services from running.\r\nBUTTON BELOW";
             label6.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // Next_BTN
@@ -177,6 +178,7 @@
             Next_BTN.Size = new Size(159, 72);
             Next_BTN.TabIndex = 29;
             Next_BTN.Text = "------>";
+            toolTip1.SetToolTip(Next_BTN, "Next");
             Next_BTN.UseVisualStyleBackColor = false;
             Next_BTN.Click += Next_BTN_Click;
             // 
@@ -195,14 +197,28 @@
             Previous_BTN.Size = new Size(159, 75);
             Previous_BTN.TabIndex = 30;
             Previous_BTN.Text = "<------";
+            toolTip1.SetToolTip(Previous_BTN, "Back");
             Previous_BTN.UseVisualStyleBackColor = false;
             Previous_BTN.Click += Previous_BTN_Click;
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.BackColor = Color.White;
+            label13.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label13.ForeColor = Color.DimGray;
+            label13.Location = new Point(273, 15);
+            label13.Name = "label13";
+            label13.Size = new Size(155, 25);
+            label13.TabIndex = 52;
+            label13.Text = "Windows 10 && 11";
             // 
             // Security_2
             // 
             AutoScaleDimensions = new SizeF(120F, 120F);
             AutoScaleMode = AutoScaleMode.Dpi;
             BackColor = Color.White;
+            Controls.Add(label13);
             Controls.Add(Previous_BTN);
             Controls.Add(Next_BTN);
             Controls.Add(label5);
@@ -238,5 +254,6 @@
         private Button Next_BTN;
         private Button Previous_BTN;
         private ToolTip toolTip1;
+        private Label label13;
     }
 }

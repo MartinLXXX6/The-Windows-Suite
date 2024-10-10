@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Optimization));
             Optimization_LBL = new Label();
             label5 = new Label();
             PThrottling_CB = new CheckBox();
@@ -43,12 +44,13 @@
             Plans_BTN = new Button();
             Services_BTN = new Button();
             label10 = new Label();
+            label8 = new Label();
             label2 = new Label();
             GPUPriority_DD = new ComboBox();
             label6 = new Label();
             EnhancedPrecision_CB = new CheckBox();
-            label8 = new Label();
             label9 = new Label();
+            label7 = new Label();
             SuspendLayout();
             // 
             // Optimization_LBL
@@ -95,7 +97,7 @@
             label3.Size = new Size(222, 38);
             label3.TabIndex = 14;
             label3.Text = "Power Throttling";
-            toolTip1.SetToolTip(label3, "Windows limits the power used by your system");
+            toolTip1.SetToolTip(label3, "Windows limiting the power used by your system.\r\n-WINDOWS 10 & 11");
             // 
             // NThrottling_CB
             // 
@@ -119,7 +121,7 @@
             label1.Size = new Size(251, 38);
             label1.TabIndex = 16;
             label1.Text = "Network Throttling";
-            toolTip1.SetToolTip(label1, "Windows limits network used by the system");
+            toolTip1.SetToolTip(label1, "Windows limiting network trafic of your system.\r\n-WINDOWS 10 & 11");
             // 
             // Reset_BTN
             // 
@@ -136,7 +138,7 @@
             Reset_BTN.Size = new Size(320, 72);
             Reset_BTN.TabIndex = 19;
             Reset_BTN.Text = "Reset to default";
-            toolTip1.SetToolTip(Reset_BTN, "Reset the Optimization tweaks to Windows default values. (Requires Apply)");
+            toolTip1.SetToolTip(Reset_BTN, "Reset the tweaks from this tab to Windows default values. (Requires Apply)");
             Reset_BTN.UseVisualStyleBackColor = false;
             Reset_BTN.Click += ResetToDefault;
             // 
@@ -155,7 +157,7 @@
             Apply_BTN.Size = new Size(320, 72);
             Apply_BTN.TabIndex = 18;
             Apply_BTN.Text = "Apply";
-            toolTip1.SetToolTip(Apply_BTN, "Run tweaks");
+            toolTip1.SetToolTip(Apply_BTN, "Run the tweaks found on the current tab.");
             Apply_BTN.UseVisualStyleBackColor = false;
             Apply_BTN.Click += Apply_BTN_Click;
             // 
@@ -169,19 +171,19 @@
             label4.Size = new Size(303, 38);
             label4.TabIndex = 22;
             label4.Text = "GPU Priority for Games";
-            toolTip1.SetToolTip(label4, "GPU priority for games");
+            toolTip1.SetToolTip(label4, "The priority of your GPU Windows gives to games.\r\n-WINDOWS 10 & 11");
             // 
             // EnhancedPrecision_L
             // 
             EnhancedPrecision_L.AutoSize = true;
             EnhancedPrecision_L.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             EnhancedPrecision_L.ForeColor = Color.FromArgb(64, 64, 64);
-            EnhancedPrecision_L.Location = new Point(35, 418);
+            EnhancedPrecision_L.Location = new Point(35, 431);
             EnhancedPrecision_L.Name = "EnhancedPrecision_L";
             EnhancedPrecision_L.Size = new Size(257, 38);
             EnhancedPrecision_L.TabIndex = 24;
             EnhancedPrecision_L.Text = "Enhanced Precision";
-            toolTip1.SetToolTip(EnhancedPrecision_L, "AKA mouse acceleration");
+            toolTip1.SetToolTip(EnhancedPrecision_L, "AKA mouse acceleration, bad for gaming.\r\n-WINDOWS 10 & 11");
             // 
             // Plans_BTN
             // 
@@ -193,12 +195,12 @@
             Plans_BTN.FlatAppearance.MouseOverBackColor = Color.FromArgb(242, 242, 242);
             Plans_BTN.FlatStyle = FlatStyle.System;
             Plans_BTN.Font = new Font("Segoe UI Semibold", 13.2F, FontStyle.Bold);
-            Plans_BTN.Location = new Point(411, 374);
+            Plans_BTN.Location = new Point(411, 395);
             Plans_BTN.Name = "Plans_BTN";
             Plans_BTN.Size = new Size(250, 60);
             Plans_BTN.TabIndex = 31;
             Plans_BTN.Text = "See Plans";
-            toolTip1.SetToolTip(Plans_BTN, "Administrate the power plans on your system");
+            toolTip1.SetToolTip(Plans_BTN, "Administrate power plans of your system.");
             Plans_BTN.UseVisualStyleBackColor = false;
             Plans_BTN.Click += Plans_BTN_Click;
             // 
@@ -212,7 +214,7 @@
             Services_BTN.FlatAppearance.MouseOverBackColor = Color.FromArgb(242, 242, 242);
             Services_BTN.FlatStyle = FlatStyle.System;
             Services_BTN.Font = new Font("Segoe UI Semibold", 13.2F, FontStyle.Bold);
-            Services_BTN.Location = new Point(411, 503);
+            Services_BTN.Location = new Point(411, 524);
             Services_BTN.Name = "Services_BTN";
             Services_BTN.Size = new Size(250, 60);
             Services_BTN.TabIndex = 33;
@@ -226,12 +228,24 @@
             label10.AutoSize = true;
             label10.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label10.ForeColor = Color.FromArgb(64, 64, 64);
-            label10.Location = new Point(386, 462);
+            label10.Location = new Point(386, 483);
             label10.Name = "label10";
             label10.Size = new Size(297, 38);
             label10.TabIndex = 32;
             label10.Text = "Set Services to Manual";
-            toolTip1.SetToolTip(label10, "Set a bunch of inecessary services to manual. This will lower the processes count of your system.\r\nAlso will ensure functionality as the processes will start as soon as they are needed.");
+            toolTip1.SetToolTip(label10, resources.GetString("label10.ToolTip"));
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label8.ForeColor = Color.FromArgb(64, 64, 64);
+            label8.Location = new Point(400, 354);
+            label8.Name = "label8";
+            label8.Size = new Size(270, 38);
+            label8.TabIndex = 29;
+            label8.Text = "System Performance";
+            toolTip1.SetToolTip(label8, "The overall system performance.\r\n-WINDOWS 10 & 11");
             // 
             // label2
             // 
@@ -262,7 +276,7 @@
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label6.Location = new Point(53, 357);
+            label6.Location = new Point(53, 370);
             label6.Name = "label6";
             label6.Size = new Size(220, 38);
             label6.TabIndex = 23;
@@ -274,38 +288,40 @@
             EnhancedPrecision_CB.Checked = true;
             EnhancedPrecision_CB.CheckState = CheckState.Checked;
             EnhancedPrecision_CB.FlatStyle = FlatStyle.System;
-            EnhancedPrecision_CB.Location = new Point(152, 462);
+            EnhancedPrecision_CB.Location = new Point(152, 475);
             EnhancedPrecision_CB.Name = "EnhancedPrecision_CB";
             EnhancedPrecision_CB.Size = new Size(16, 16);
             EnhancedPrecision_CB.TabIndex = 25;
             EnhancedPrecision_CB.UseVisualStyleBackColor = false;
             // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label8.ForeColor = Color.FromArgb(64, 64, 64);
-            label8.Location = new Point(400, 333);
-            label8.Name = "label8";
-            label8.Size = new Size(270, 38);
-            label8.TabIndex = 29;
-            label8.Text = "System Performance";
-            // 
             // label9
             // 
             label9.AutoSize = true;
             label9.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label9.Location = new Point(382, 280);
+            label9.Location = new Point(382, 301);
             label9.Name = "label9";
             label9.Size = new Size(306, 38);
             label9.TabIndex = 30;
             label9.Text = "Power && Performance";
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.BackColor = Color.White;
+            label7.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label7.ForeColor = Color.DimGray;
+            label7.Location = new Point(273, 15);
+            label7.Name = "label7";
+            label7.Size = new Size(155, 25);
+            label7.TabIndex = 48;
+            label7.Text = "Windows 10 && 11";
             // 
             // Optimization
             // 
             AutoScaleDimensions = new SizeF(120F, 120F);
             AutoScaleMode = AutoScaleMode.Dpi;
             BackColor = Color.White;
+            Controls.Add(label7);
             Controls.Add(Services_BTN);
             Controls.Add(label10);
             Controls.Add(Plans_BTN);
@@ -356,5 +372,6 @@
         private Button Plans_BTN;
         private Button Services_BTN;
         private Label label10;
+        private Label label7;
     }
 }

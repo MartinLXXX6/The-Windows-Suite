@@ -118,11 +118,11 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="label4.Text" xml:space="preserve">
-    <value>Each checkbox/drop-down menu changes a specific thing. By checking and unchecking the value changes (Even unchecked). However depending on the title, unchecking activates the tweak or deactivates it. Some tweaks are only working for a specific Windows product. But this does not mean that activating it harms your computer, simply the tweak wont work.
+    <value>Each checkbox/drop-down menu changes a specific thing. By checking and unchecking the value changes (Even unchecked). However depending on the title, unchecking activates the tweak or deactivates it. Some tweaks are only working for a specific Windows product so make sure to hover over the tweak name to see more info.
 </value>
   </data>
   <data name="ReadMe_TXT.Text" xml:space="preserve">
-    <value>This tool changes the Registry Editor and Task Scheduler, misusing them can lead to unwanted behaviors. Please proceed with careful and make sure to read everything before changing anything. Thanks for using the tool, hope you find it useful. 
+    <value>This tool changes the Registry Editor, Task Scheduler and Services App, misusing them can lead to unwanted behaviors. Please proceed with careful and make sure to READ EVERYTHING BEFORE CHANGING ANYTHING. Thanks for using the tool, hope you find it useful. 
 TIP: HOVER OVER TWEAKS TO GET MORE INFO ABOUT THEM.</value>
   </data>
 </root>

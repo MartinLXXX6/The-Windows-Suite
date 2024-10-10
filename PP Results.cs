@@ -1,16 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
+﻿using System.Collections.ObjectModel;
 using System.Management.Automation.Runspaces;
 using System.Management.Automation;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.Data.SqlTypes;
 
 namespace Win_Tweaker
 {
@@ -168,18 +158,24 @@ namespace Win_Tweaker
 
             //string script = @"
             //    $planName = 'High Performance'
-            //    $planGUID = $(powercfg -duplicatescheme 8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c)
-            //    powercfg -setactive $planGUID
+            //    $newPlanGUID = powercfg -duplicatescheme 381b4222-f694-41f0-9685-ff5bb260df2e
+            //    $newPlanGUID = $newPlanGUID -replace '[{}]', ''
+
             //    powercfg -change standby-timeout-ac 0
             //    powercfg -change standby-timeout-dc 0
-            //    powercfg -change processor-throttle-dc none
-            //    powercfg -change processor-throttle-ac none
+            //    powercfg /change monitor - timeout - ac 0
+            //    powercfg /change monitor - timeout - dc 0
+            //    powercfg -change processor-throttle-dc 85
+            //    powercfg -change processor-throttle-ac 85
             //    powercfg -change disk-timeout-dc 0
             //    powercfg -change disk-timeout-ac 0
             //    powercfg -change hibernate-timeout-dc 0
             //    powercfg -change hibernate-timeout-ac 0
-            //    powercfg -change monitor-timeout-dc 600
-            //    powercfg -change monitor-timeout-ac 600";
+
+            //    powercfg -changename $newPlanGUID $planName
+
+            //    powercfg -setactive $planGUID
+            //    Read-Host """;
 
             //pipeline.Commands.AddScript(script);
 
@@ -193,10 +189,42 @@ namespace Win_Tweaker
             //runspace.Open();
             //Pipeline pipeline = runspace.CreatePipeline();
 
+            //string script = @"
+            //try {
+            //    powercfg -duplicatescheme e9a42b02-d5df-448d-aa00-03f14749eb61
+
+            //    $ultimatePlanLine = powercfg -list | Select-String -Pattern 'Ultimate Performance'
+
+            //    if ($ultimatePlanLine) {
+            //        $ultimatePlanGUID = $ultimatePlanLine.Line.Split()[3]
+            //        powercfg -setactive $ultimatePlanGUID
+            //    } else {
+            //        throw 'Ultimate Performance power plan not found.'
+            //    }
+            //}
+            //catch {
+            //    Write-Output $_.Exception.Message
+            //}";
 
 
-            //pipeline.Invoke();
-            //runspace.Close();
+            //pipeline.Commands.AddScript(script);
+
+            //try
+            //{
+            //    Collection<PSObject> results = pipeline.Invoke();
+            //    foreach (PSObject obj in results)
+            //    {
+            //        MessageBox.Show(obj.ToString());
+            //    }
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show($"An error occurred: {ex.Message}");
+            //}
+            //finally
+            //{
+            //    runspace.Close();
+            //}
         }
     }
 }

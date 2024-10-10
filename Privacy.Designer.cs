@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Privacy));
             Personalization_LBL = new Label();
             Apply_BTN = new Button();
             Reset_BTN = new Button();
@@ -49,6 +50,7 @@
             ServicesTel_CB = new CheckBox();
             ExtraTel_CB = new CheckBox();
             AccessToPhoneMic_DD = new ComboBox();
+            label9 = new Label();
             SuspendLayout();
             // 
             // Personalization_LBL
@@ -78,7 +80,7 @@
             Apply_BTN.Size = new Size(320, 72);
             Apply_BTN.TabIndex = 16;
             Apply_BTN.Text = "Apply";
-            toolTip1.SetToolTip(Apply_BTN, "Remove all Microsoft Junk from YOUR hardware");
+            toolTip1.SetToolTip(Apply_BTN, "Run the tweaks found on the current tab.");
             Apply_BTN.UseVisualStyleBackColor = false;
             Apply_BTN.Click += Apply_BTN_Click;
             // 
@@ -97,7 +99,7 @@
             Reset_BTN.Size = new Size(320, 72);
             Reset_BTN.TabIndex = 17;
             Reset_BTN.Text = "Reset to default";
-            toolTip1.SetToolTip(Reset_BTN, "Reset the Privacy tweaks to Windows default values. (Requires Apply)");
+            toolTip1.SetToolTip(Reset_BTN, "Reset the tweaks from this tab to Windows default values. (Requires Apply)");
             Reset_BTN.UseVisualStyleBackColor = false;
             Reset_BTN.Click += ResetToDefault;
             // 
@@ -222,7 +224,7 @@
             label8.Size = new Size(545, 38);
             label8.TabIndex = 32;
             label8.Text = "Allow Access to Phone, Location, Email etc.\r\n";
-            toolTip1.SetToolTip(label8, "Allow Wiondows and Desktop Apps to access different aspects of your PC");
+            toolTip1.SetToolTip(label8, resources.GetString("label8.ToolTip"));
             // 
             // TailoredExp_CB
             // 
@@ -299,17 +301,30 @@
             AccessToPhoneMic_DD.FormattingEnabled = true;
             AccessToPhoneMic_DD.IntegralHeight = false;
             AccessToPhoneMic_DD.Items.AddRange(new object[] { "Microphone and Camera (Recommended)", "Microphone, Camera, Location, Calendar and Email", "Microphone, Camera, Location, Calendar, Email, Bluetooth, Cellular Data and Phone", "All (default)" });
-            AccessToPhoneMic_DD.Location = new Point(3, 354);
+            AccessToPhoneMic_DD.Location = new Point(2, 354);
             AccessToPhoneMic_DD.Name = "AccessToPhoneMic_DD";
-            AccessToPhoneMic_DD.Size = new Size(694, 36);
+            AccessToPhoneMic_DD.Size = new Size(697, 36);
             AccessToPhoneMic_DD.TabIndex = 34;
-            toolTip1.SetToolTip(AccessToPhoneMic_DD, "All=Let Windows and Desktop Apps access all aspects");
+            toolTip1.SetToolTip(AccessToPhoneMic_DD, "All=Let Windows and Apps access all aspects.");
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.BackColor = Color.White;
+            label9.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label9.ForeColor = Color.DimGray;
+            label9.Location = new Point(273, 20);
+            label9.Name = "label9";
+            label9.Size = new Size(155, 25);
+            label9.TabIndex = 48;
+            label9.Text = "Windows 10 && 11";
             // 
             // Privacy
             // 
             AutoScaleDimensions = new SizeF(120F, 120F);
             AutoScaleMode = AutoScaleMode.Dpi;
             BackColor = Color.White;
+            Controls.Add(label9);
             Controls.Add(AccessToPhoneMic_DD);
             Controls.Add(label8);
             Controls.Add(ExtraTel_CB);
@@ -360,5 +375,6 @@
         private Label label7;
         private Label label8;
         private ComboBox AccessToPhoneMic_DD;
+        private Label label9;
     }
 }

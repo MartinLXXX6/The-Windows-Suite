@@ -1,4 +1,3 @@
-using Microsoft.CodeAnalysis.CSharp.Syntax;
 using The_Windows_Suite.Properties;
 
 namespace Win_Tweaker

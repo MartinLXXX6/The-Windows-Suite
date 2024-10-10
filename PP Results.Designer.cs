@@ -43,6 +43,7 @@
             HPerformance_BTN = new Button();
             UltraHighPerformance_BTN = new Button();
             label1 = new Label();
+            label13 = new Label();
             SuspendLayout();
             // 
             // PPResults_LBL
@@ -83,7 +84,7 @@
             Close_BTN.Size = new Size(133, 107);
             Close_BTN.TabIndex = 19;
             Close_BTN.Text = "Close";
-            toolTip1.SetToolTip(Close_BTN, "Return to gaming tab");
+            toolTip1.SetToolTip(Close_BTN, "Return");
             Close_BTN.UseVisualStyleBackColor = false;
             Close_BTN.Click += Close_BTN_Click;
             // 
@@ -102,7 +103,7 @@
             Check_BTN.Size = new Size(255, 107);
             Check_BTN.TabIndex = 20;
             Check_BTN.Text = "Check";
-            toolTip1.SetToolTip(Check_BTN, "Check the current PowerPlans as well as the active one and get its GUIDs.");
+            toolTip1.SetToolTip(Check_BTN, "Check the current PowerPlans as well as the active one and get its GUIDs.\r\n-WINDOWS 10 & 11");
             Check_BTN.UseVisualStyleBackColor = false;
             Check_BTN.Click += Check_BTN_Click;
             // 
@@ -121,7 +122,7 @@
             Apply_BTN.Size = new Size(216, 64);
             Apply_BTN.TabIndex = 21;
             Apply_BTN.Text = "Activate";
-            toolTip1.SetToolTip(Apply_BTN, "Activate a PowerPlan with its corresponding GUID placed below.");
+            toolTip1.SetToolTip(Apply_BTN, "Activate a PowerPlan with its corresponding GUID placed below.\r\n-WINDOWS 10 & 11");
             Apply_BTN.UseVisualStyleBackColor = false;
             Apply_BTN.Click += Apply_BTN_Click;
             // 
@@ -133,6 +134,7 @@
             InputPlan_TB.Name = "InputPlan_TB";
             InputPlan_TB.Size = new Size(401, 32);
             InputPlan_TB.TabIndex = 22;
+            toolTip1.SetToolTip(InputPlan_TB, "Place GUID here...");
             // 
             // label8
             // 
@@ -160,7 +162,7 @@
             Delete_BTN.Size = new Size(224, 64);
             Delete_BTN.TabIndex = 36;
             Delete_BTN.Text = "Delete";
-            toolTip1.SetToolTip(Delete_BTN, "Delete a PowerPlan with its corresponding GUID placed below.");
+            toolTip1.SetToolTip(Delete_BTN, "Delete a PowerPlan with its corresponding GUID placed below.\r\n-WINDOWS 10 & 11\r\n\r\nWARNING: This will delete the PowerPlan instantly.");
             Delete_BTN.UseVisualStyleBackColor = false;
             Delete_BTN.Click += Delete_BTN_Click;
             // 
@@ -251,11 +253,24 @@
             label1.TabIndex = 33;
             label1.Text = "Create Plan:";
             // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.BackColor = Color.White;
+            label13.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label13.ForeColor = Color.DimGray;
+            label13.Location = new Point(390, 12);
+            label13.Name = "label13";
+            label13.Size = new Size(155, 25);
+            label13.TabIndex = 52;
+            label13.Text = "Windows 10 && 11";
+            // 
             // PP_Results
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
-            AutoScaleMode = AutoScaleMode.Font;
+            AutoScaleDimensions = new SizeF(120F, 120F);
+            AutoScaleMode = AutoScaleMode.Dpi;
             BackColor = Color.White;
+            Controls.Add(label13);
             Controls.Add(Delete_BTN);
             Controls.Add(UltraHighPerformance_BTN);
             Controls.Add(HPerformance_BTN);
@@ -293,5 +308,6 @@
         private Button HPerformance_BTN;
         private Button UltraHighPerformance_BTN;
         private Button Delete_BTN;
+        private Label label13;
     }
 }

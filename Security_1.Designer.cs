@@ -39,6 +39,7 @@
             label6 = new Label();
             label7 = new Label();
             label8 = new Label();
+            label13 = new Label();
             SuspendLayout();
             // 
             // Personalization_LBL
@@ -120,7 +121,7 @@
             label3.Name = "label3";
             label3.Size = new Size(326, 157);
             label3.TabIndex = 23;
-            label3.Text = "Navigate to ADVANCED tab on the top part of the window.";
+            label3.Text = "Press the button provided and navigate to ADVANCED tab on the top part of the window.";
             label3.TextAlign = ContentAlignment.TopCenter;
             // 
             // label4
@@ -162,7 +163,7 @@
             // 
             label7.Font = new Font("Segoe UI", 14.2F);
             label7.ForeColor = SystemColors.ActiveCaptionText;
-            label7.Location = new Point(296, 503);
+            label7.Location = new Point(296, 497);
             label7.Name = "label7";
             label7.Size = new Size(109, 34);
             label7.TabIndex = 27;
@@ -174,18 +175,31 @@
             label8.AutoSize = true;
             label8.Font = new Font("Segoe UI Semibold", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label8.ForeColor = SystemColors.ActiveCaptionText;
-            label8.Location = new Point(302, 465);
+            label8.Location = new Point(302, 459);
             label8.Name = "label8";
             label8.Size = new Size(97, 38);
             label8.TabIndex = 28;
             label8.Text = "Step 3";
             label8.TextAlign = ContentAlignment.MiddleCenter;
             // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.BackColor = Color.White;
+            label13.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label13.ForeColor = Color.DimGray;
+            label13.Location = new Point(273, 15);
+            label13.Name = "label13";
+            label13.Size = new Size(155, 25);
+            label13.TabIndex = 52;
+            label13.Text = "Windows 10 && 11";
+            // 
             // Security_1
             // 
             AutoScaleDimensions = new SizeF(120F, 120F);
             AutoScaleMode = AutoScaleMode.Dpi;
             BackColor = Color.White;
+            Controls.Add(label13);
             Controls.Add(label8);
             Controls.Add(label7);
             Controls.Add(label5);
@@ -220,5 +234,6 @@
         private Label label6;
         private Label label7;
         private Label label8;
+        private Label label13;
     }
 }

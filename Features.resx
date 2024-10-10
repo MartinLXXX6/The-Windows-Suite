@@ -120,6 +120,18 @@
   <metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
+  <metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <data name="label4.ToolTip" xml:space="preserve">
+    <value>Add a File Explorer Shortcut for opening the Old File Explorer with the Windows 10 Ribbon.
+-WINDOWS 11 ONLY
+
+HOW IT WORKS: This feature creates a shortcut to the Desktop that opens the File Explorer with parameters
+that brings back the old Ribbon to the File Explorer. Also, you can add it to the taskbar or any other place.
+
+NOTE: You can delete it  and add it any time you want as the file is a shortcut.</value>
+  </data>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>25</value>
   </metadata>

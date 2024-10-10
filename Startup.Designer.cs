@@ -41,6 +41,7 @@
             ResetToDefault_BTN = new Button();
             toolTip1 = new ToolTip(components);
             label1 = new Label();
+            label13 = new Label();
             SuspendLayout();
             // 
             // Personalization_LBL
@@ -70,7 +71,7 @@
             Apply_BTN.Size = new Size(320, 72);
             Apply_BTN.TabIndex = 18;
             Apply_BTN.Text = "Apply";
-            toolTip1.SetToolTip(Apply_BTN, "Run tweaks");
+            toolTip1.SetToolTip(Apply_BTN, "Run the tweaks found on the current tab.");
             Apply_BTN.UseVisualStyleBackColor = false;
             Apply_BTN.Click += Apply_BTN_Click;
             // 
@@ -96,12 +97,12 @@
             Check_BTN.FlatAppearance.MouseOverBackColor = Color.FromArgb(242, 242, 242);
             Check_BTN.FlatStyle = FlatStyle.System;
             Check_BTN.Font = new Font("Segoe UI Semibold", 19.2F, FontStyle.Bold);
-            Check_BTN.Location = new Point(97, 544);
+            Check_BTN.Location = new Point(37, 544);
             Check_BTN.Name = "Check_BTN";
-            Check_BTN.Size = new Size(507, 72);
+            Check_BTN.Size = new Size(626, 72);
             Check_BTN.TabIndex = 17;
             Check_BTN.Text = "Check";
-            toolTip1.SetToolTip(Check_BTN, "Check the current apps found on the registry startup entries");
+            toolTip1.SetToolTip(Check_BTN, "Check the current apps found on the registry startup entries.");
             Check_BTN.UseVisualStyleBackColor = false;
             Check_BTN.Click += Check_BTN_Click;
             // 
@@ -115,7 +116,7 @@
             label3.Size = new Size(203, 38);
             label3.TabIndex = 20;
             label3.Text = "Microsoft Edge";
-            toolTip1.SetToolTip(label3, "Microsoft Edge at startup and all its related processes such as Updates.");
+            toolTip1.SetToolTip(label3, "Prevent Microsoft Edge to start on startup.\r\n-WINDOWS 10 & 11");
             // 
             // MicrosoftEdgeStartup_CB
             // 
@@ -166,6 +167,7 @@
             ResetToDefault_BTN.Size = new Size(320, 72);
             ResetToDefault_BTN.TabIndex = 24;
             ResetToDefault_BTN.Text = "Reset to default";
+            toolTip1.SetToolTip(ResetToDefault_BTN, "Reset the tweaks from this tab to Windows default values. (Requires Apply)");
             ResetToDefault_BTN.UseVisualStyleBackColor = false;
             ResetToDefault_BTN.Click += ResetToDefault;
             // 
@@ -180,11 +182,24 @@
             label1.TabIndex = 25;
             label1.Text = "                                                    App                                               |           Status         ";
             // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.BackColor = Color.White;
+            label13.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label13.ForeColor = Color.DimGray;
+            label13.Location = new Point(273, 15);
+            label13.Name = "label13";
+            label13.Size = new Size(155, 25);
+            label13.TabIndex = 52;
+            label13.Text = "Windows 10 && 11";
+            // 
             // Startup
             // 
             AutoScaleDimensions = new SizeF(120F, 120F);
             AutoScaleMode = AutoScaleMode.Dpi;
             BackColor = Color.White;
+            Controls.Add(label13);
             Controls.Add(label1);
             Controls.Add(ResetToDefault_BTN);
             Controls.Add(SilentInstalls_CB);
@@ -218,5 +233,6 @@
         private Button ResetToDefault_BTN;
         private ToolTip toolTip1;
         private Label label1;
+        private Label label13;
     }
 }

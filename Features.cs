@@ -5,7 +5,6 @@ namespace Win_Tweaker
 {
     public partial class Features : UserControl
     {
-
         private static void ChangeRegKey(string path, string valueName, bool forcePath, Pipeline pipeline, string valueType, string value)
         {
             if (forcePath)
@@ -62,6 +61,42 @@ namespace Win_Tweaker
             }
             #endregion
 
+            #region OldExplorerRibbon
+            string script;
+            string location = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory) + "\\Old File Explorer.lnk";
+            string targetPath = "C:\\Windows\\explorer.exe";
+            string arguments = "shell:::{26EE0668-A00A-44D7-9371-BEB064C98683}\\5\\::{679f85cb-0220-4080-b29b-5540cc05aab6}";
+
+            if (ExplorerRibbon_DDM.SelectedItem == "Add (Normal Window)")
+            {
+                script = $@"
+                    $com = New-Object -ComObject WScript.Shell
+                    $shortcut = $com.CreateShortcut('{location}')
+                    $shortcut.TargetPath = '{targetPath}'
+                    $shortcut.Arguments = '{arguments}'
+                    $shortcut.Description = 'Open QuickAccess/Home with old File Explorer ribbon'
+                    $shortcut.WindowStyle = 1
+                    $shortcut.Save()
+                ";
+
+                pipeline.Commands.AddScript(script);
+            }
+            else if (ExplorerRibbon_DDM.SelectedItem == "Add (Maximized Window)")
+            {
+                script = $@"
+                    $com = New-Object -ComObject WScript.Shell
+                    $shortcut = $com.CreateShortcut('{location}')
+                    $shortcut.TargetPath = '{targetPath}'
+                    $shortcut.Arguments = '{arguments}'
+                    $shortcut.Description = 'Open QuickAccess/Home with old File Explorer ribbon'
+                    $shortcut.WindowStyle = 3
+                    $shortcut.Save()
+                ";
+
+                pipeline.Commands.AddScript(script);
+            }
+            #endregion
+
             #region Photo_Viewer
             if (PV_DDM.SelectedItem == "Enable")
             {
@@ -113,7 +148,6 @@ namespace Win_Tweaker
             #endregion
 
             #region UninstallApp
-
             if (UninstallApp_DD.SelectedItem == "Your Phone/Phone Link")
             {
                 //pipeline.Commands.AddScript("Import-Module Appx $package = Get-AppxPackage -Name Microsoft.YourPhone -ErrorAction SilentlyContinue\r\n\r\nif ($package) {Remove-AppxPackage $package}");
@@ -121,26 +155,26 @@ namespace Win_Tweaker
             }
             else if (UninstallApp_DD.SelectedItem == "OneDrive")
             {
-                string script = @"
-                $module = Get-Module -ListAvailable Appx | Select-Object -First 1 -ExpandProperty Path;
-                if ($module) {
-                    try {
-                        Import-Module $module -ErrorAction Stop;
-                        $package = Get-AppxPackage -Name Microsoft.OneDriveSync -ErrorAction SilentlyContinue;
-                        if ($package) {
-                            Remove-AppxPackage -Package $package
-                        } else {
-                            Write-Output 'Package not found or already removed.';
-                        }
-                    } catch {
-                        Write-Output 'Failed to import module or execute command: ' + $_.Exception.Message;
-                    }
-                } else {
-                    Write-Output 'Appx module not found.';
-                }
-            ";
+            //    string script2 = @"
+            //    $module = Get-Module -ListAvailable Appx | Select-Object -First 1 -ExpandProperty Path;
+            //    if ($module) {
+            //        try {
+            //            Import-Module $module -ErrorAction Stop;
+            //            $package = Get-AppxPackage -Name Microsoft.OneDriveSync -ErrorAction SilentlyContinue;
+            //            if ($package) {
+            //                Remove-AppxPackage -Package $package
+            //            } else {
+            //                Write-Output 'Package not found or already removed.';
+            //            }
+            //        } catch {
+            //            Write-Output 'Failed to import module or execute command: ' + $_.Exception.Message;
+            //        }
+            //    } else {
+            //        Write-Output 'Appx module not found.';
+            //    }
+            //";
 
-                //pipeline.Commands.AddScript(script);
+                //pipeline.Commands.AddScript(script2);
             }
             else if (UninstallApp_DD.SelectedItem == "Get Started & Tips")
             {
@@ -156,12 +190,12 @@ namespace Win_Tweaker
                 //pipeline.Commands.AddScript("Import-Module Appx $package = Get-AppxPackage -Name Microsoft.People -ErrorAction SilentlyContinue\r\n\r\nif ($package) {Remove-AppxPackage $package}");
 
             }
-
             #endregion
 
             if (pipeline.Commands.Count == 0)
             {
-                MessageBox.Show("No tweak was selected.");
+                runspace.Close();
+                MessageBox.Show("No tweaks were selected, make sure that:\n+You havent selected a WIP feature\n+You have selected a feature or more that one");
                 return;
             }
 
